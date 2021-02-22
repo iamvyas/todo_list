@@ -1,0 +1,24 @@
+<h1 style="background-color:black;"><p style="color: aliceblue;">DEATH NOTE</p></h1>
+
+<!--<ul>
+    <li>temporary todo itam A</li>
+    <li>temporary todo itam A</li>
+</ul> -->
+
+<ul>
+    {% for todo_item in mutta_bonda %}
+        <li>{{todo_item.content}}
+            <form action="/deleteTodo/{{todo_item.id}}/" 
+                style = "display: inline;"
+                method="post"> {% csrf_token %}
+                <input type="submit" value="Delete"/>
+            </form>
+        </li>
+        
+    {% endfor %}  <!-- its a for loop-->
+</ul>
+
+<form action="/addTodo/" method="post"> {% csrf_token %}
+    <input type="text" name="porul"/>  #content bathila porul
+    <input type="submit" value="Addi"/>
+</form>
